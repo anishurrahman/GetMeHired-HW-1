@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home work#1</title>
+</head>
+<body>
+<h1 align="center">Shopping Cart</h1>
+
+<form id="myForm">
+
+<table border = "2">
+<tr>
+	<th width="250">Item</th>
+	<th width="250">Quantity (pc) </th>
+	<th width="250">Unit Price($)</th>
+	<th width="250">Total Price($)</th>
+</tr>
+<tr>
+	<td>Item-A: <input id="item-A" type = "text"/></td>
+	<td><input id="firstItemQuantity" type="number"/></td>
+	<td><input id="firstItemUnitPrice" type="number"/></td>
+	<td id="firstItemTotal"></td>
+</tr>
+
+<tr>
+    	<td>Item-B: <input id="item-B" type = "text"/></td>
+	<td><input id="secondItemQuantity" type="number"/></td>
+	<td><input id="secondItemUnitPrice" type="number"/></td>
+	<td id="secondItemTotal"></td>
+</tr>
+<tr>
+	<td colspan="3">Total Price </td>
+	
+	<td id="grandTotal"></td>
+</tr>
+</table>
+</form>
+
+<br>
+<input align="center" type = "button" value="Calculate" onclick="calculate()"/>
+<br/>
+<br>
+<input align="center" type = "button" value="Reset" onclick="reset()"/><br/>
+
+<script>
+	
+	function calculate(){
+		var firstItemQuantity = document.getElementById('firstItemQuantity').value;
+		var firstItemUnitPrice = document.getElementById('firstItemUnitPrice').value;
+		var firstItemTotal = parseInt(firstItemQuantity)*parseInt(firstItemUnitPrice);
+		document.getElementById('firstItemTotal').innerHTML = firstItemTotal;
+
+		var secondItemQuantity = document.getElementById('secondItemQuantity').value;
+		var secondItemUnitPrice = document.getElementById('secondItemUnitPrice').value;
+		var secondItemTotal = parseInt(secondItemQuantity)*parseInt(secondItemUnitPrice);
+		document.getElementById('secondItemTotal').innerHTML = secondItemTotal;
+
+			var grandTotal = parseInt(firstItemTotal)+parseInt(secondItemTotal);
+			document.getElementById('grandTotal').innerHTML = grandTotal;
+			
+		}
+		function reset() {
+			document.getElementById("myForm").reset();
+			document.getElementById('firstItemTotal').innerHTML = null;
+			document.getElementById('secondItemTotal').innerHTML = null;
+			document.getElementById('grandTotal').innerHTML = null;
+		
+		}
+
+	
+</script>
+
+</body>
+</html>
